@@ -1,7 +1,7 @@
 {
   "name": "portpilot",
   "productName": "PortPilot",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "PortPilot: controller-poortplanner voor xLights",
   "author": "Laserworx",
   "main": "main.js",

@@ -84,10 +84,35 @@ const settle = pg => pg.waitForFunction(() => !flush.busy && dirty.size === 0, n
   await pg.waitForFunction(() => document.documentElement.lang === "en");
   await pg.click("#btnLimits");
   ok(await pg.locator("#ppTheme").inputValue() === "system", "theme follows the system by default");
+  const checkUpdateContrast = async () => {
+    for (const id of ["updGo", "updPage", "updLater"]) {
+      const contrast = await pg.locator("#" + id).evaluate(button => {
+        const luminance = color => {
+          const channels = color.match(/\d+(?:\.\d+)?/g).slice(0, 3).map(value => {
+            const c = Number(value) / 255;
+            return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+          });
+          return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+        };
+        const style = getComputedStyle(button);
+        const values = [luminance(style.color), luminance(style.backgroundColor)].sort((a, b) => a - b);
+        return (values[1] + 0.05) / (values[0] + 0.05);
+      });
+      ok(contrast >= 4.5, id + " contrast: " + contrast.toFixed(2) + ":1");
+    }
+  };
+  await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].webContents.send("update:available", {
+    version: "99.0.0", current: "test", portable: false
+  }));
+  await pg.locator("#updGo").waitFor();
   await pg.selectOption("#ppTheme", "dark");
   ok(await pg.evaluate(() => getComputedStyle(document.documentElement).colorScheme) === "dark", "Dark theme applied");
+  await checkUpdateContrast();
   await pg.selectOption("#ppTheme", "light");
   ok(await pg.evaluate(() => getComputedStyle(document.documentElement).colorScheme) === "light", "Light theme applied");
+  await checkUpdateContrast();
+  await pg.click("#updLater");
+  ok(!(await pg.locator("#updBar").isVisible()), "Later hides update banner");
   await pg.selectOption("#ppTheme", "system");
   ok(await pg.locator("html").getAttribute("data-theme") === null, "theme override cleared");
   await pg.selectOption("#ppTheme", "dark");

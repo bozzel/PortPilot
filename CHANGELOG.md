@@ -4,6 +4,12 @@ Changes to PortPilot by version. The local release script uses the matching entr
 
 For each release, add a heading in the format `## x.y.z - YYYY-MM-DD`, followed by the changes.
 
+## 1.0.7 - 2026-11-19
+
+### Fixed
+
+- Made the update banner buttons and keyboard focus outline readable in both light and dark themes.
+
 ## 1.0.6 - 2026-11-19
 
 ### Fixed
