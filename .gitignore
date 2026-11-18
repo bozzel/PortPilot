@@ -10,3 +10,4 @@ tests/web/uitvoer_*
 tests/web/*.png
 # testgegevens met je eigen show: niet openbaar
 tests/web/data/
+/release.ps1

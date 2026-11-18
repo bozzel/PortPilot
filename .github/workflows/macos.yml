@@ -1,0 +1,56 @@
+name: Build and test macOS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - codex/portpilot-macos-test
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            arch: arm64
+          - runner: macos-15-intel
+            arch: x64
+    runs-on: ${{ matrix.runner }}
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: |
+          npm ci --prefix windows
+          npm install --prefix tests --package-lock=false
+      - name: Build disk image
+        working-directory: windows
+        run: npm run build:mac -- --${{ matrix.arch }}
+      - name: Test the app from the disk image
+        shell: bash
+        run: |
+          set -euo pipefail
+          dmg=$(find windows/dist-mac -maxdepth 1 -name '*.dmg' -print -quit)
+          test -n "$dmg"
+          mount=$(mktemp -d)
+          installed=$(mktemp -d)
+          hdiutil attach "$dmg" -readonly -nobrowse -mountpoint "$mount"
+          trap 'hdiutil detach "$mount"' EXIT
+          ditto "$mount/PortPilot.app" "$installed/PortPilot.app"
+          executable="$installed/PortPilot.app/Contents/MacOS/PortPilot"
+          file "$executable"
+          lipo -verify_arch "${{ matrix.arch == 'x64' && 'x86_64' || 'arm64' }}" "$executable"
+          PORTPILOT_TEST_EXECUTABLE="$executable" node tests/windows/e2e.js
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PortPilot-macOS-${{ matrix.arch }}
+          path: windows/dist-mac/*.dmg
+          if-no-files-found: error

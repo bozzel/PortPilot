@@ -29,7 +29,9 @@ rep('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+P
 
 // teksten die over claude.ai gaan
 rep('"Privé opgeslagen op claude.ai"', '"Opgeslagen op deze computer"');
+rep('"Saved privately on claude.ai"', '"Saved on this computer"');
 rep('"Exporteren werkt alleen in het artefact op claude.ai, niet in deze voorbeeldweergave."', '"Exporteren lukte niet."');
+rep('"Open the artifact on claude.ai to export from it."', '"Could not export."');
 
 // opslag-brug vóór de pagina, showmap-koppeling erna
 const shim = fs.readFileSync(path.join(HERE, "desktop", "shim.js"), "utf8"), tail = fs.readFileSync(path.join(HERE, "desktop", "tail.js"), "utf8");

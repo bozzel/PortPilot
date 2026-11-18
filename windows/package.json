@@ -1,7 +1,7 @@
 {
   "name": "portpilot",
   "productName": "PortPilot",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "PortPilot: controller-poortplanner voor xLights",
   "author": "Laserworx",
   "main": "main.js",
@@ -9,7 +9,8 @@
   "scripts": {
     "app": "node build_app.js",
     "start": "node build_app.js && electron .",
-    "build": "node build_app.js && electron-builder --win dir --x64 && node stamp_exe.js dist/win-unpacked/PortPilot.exe && electron-builder --win portable --x64 --prepackaged dist/win-unpacked"
+    "build": "node build_app.js && electron-builder --win dir --x64 && node stamp_exe.js dist/win-unpacked/PortPilot.exe && electron-builder --win portable --x64 --prepackaged dist/win-unpacked",
+    "build:mac": "node build_app.js && electron-builder --mac dmg --publish never --config.directories.output=dist-mac"
   },
   "build": {
     "appId": "nl.laserworx.portpilot",
@@ -39,6 +40,11 @@
     },
     "portable": {
       "artifactName": "PortPilot-${version}-portable.${ext}"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.png",
+      "artifactName": "PortPilot-${version}-mac-${arch}.${ext}"
     }
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 // Brug tussen de pagina en Windows: alleen deze functies, geen vrije toegang tot het bestandssysteem.
 const { contextBridge, ipcRenderer } = require("electron");
 contextBridge.exposeInMainWorld("ppDesktop", {
+  setLanguage: value => ipcRenderer.invoke("app:language", value),
   info: () => ipcRenderer.invoke("app:info"),
   dbGet: p => ipcRenderer.invoke("db:get", p),
   dbSet: (p, d) => ipcRenderer.invoke("db:set", p, d),
@@ -9,6 +10,7 @@ contextBridge.exposeInMainWorld("ppDesktop", {
   showGet: () => ipcRenderer.invoke("show:get"),
   showPick: () => ipcRenderer.invoke("show:pick"),
   showRead: name => ipcRenderer.invoke("show:read", name),
+  showPickFile: name => ipcRenderer.invoke("show:pick-file", name),
   saveFile: (name, bytes) => ipcRenderer.invoke("file:save", name, bytes),
   onShowChanged: cb => ipcRenderer.on("show:changed", (e, d) => cb(d)),
   onOpenLimits: cb => ipcRenderer.on("open:limits", () => cb()),
