@@ -1,0 +1,12 @@
+# gebouwde bestanden (komen als release op GitHub, niet in de broncode)
+release/
+windows/node_modules/
+windows/app/
+windows/dist/
+tests/node_modules/
+tests/windows/cfg*/
+tests/windows/out/
+tests/web/uitvoer_*
+tests/web/*.png
+# testgegevens met je eigen show: niet openbaar
+tests/web/data/

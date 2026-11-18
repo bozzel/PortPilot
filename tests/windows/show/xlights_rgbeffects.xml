@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xrgb>
+<models>
+  <model name="Boog links" DisplayAs="Single Line" parm1="1" parm2="100" WorldPosX="-300" Controller="Falcon_F16V5_TEST"><ControllerConnection Port="1"/></model>
+  <model name="Boog rechts" DisplayAs="Single Line" parm1="1" parm2="100" WorldPosX="300" Controller="Falcon_F16V5_TEST"><ControllerConnection Port="2"/></model>
+  <model name="Megaboom" DisplayAs="Tree 360" parm1="8" parm2="100" WorldPosX="0" Controller="Falcon_F16V5_TEST"><ControllerConnection Port="3"/></model>
+  <model name="Dakrand" DisplayAs="Single Line" parm1="1" parm2="600" WorldPosX="10" Controller="Falcon_F16V5_TEST"><ControllerConnection Port="11"/></model>
+  <model name="Flood links" DisplayAs="Single Line" parm1="1" parm2="1" WorldPosX="-200"/>
+  <model name="Ster" DisplayAs="Star" parm1="1" parm2="300" WorldPosX="50"/>
+</models>
+</xrgb>

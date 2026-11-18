@@ -1,0 +1,10 @@
+{
+  "name": "portpilot-tests",
+  "private": true,
+  "description": "Tests voor PortPilot (web en Windows-app)",
+  "scripts": {
+    "web": "node web/t1.js && node web/t2.js && node web/t3.js && node web/t4.js && node web/t5.js && node web/t6.js",
+    "windows": "xvfb-run -a node windows/e2e.js && xvfb-run -a node windows/update.js"
+  },
+  "devDependencies": { "playwright": "1.63.0" }
+}
