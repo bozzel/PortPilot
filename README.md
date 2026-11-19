@@ -1,33 +1,48 @@
 # PortPilot
 
-PortPilot helps you assign props from your xLights layout to controller and receiver ports. See pixel counts, power and current for each port, plus the load on each power supply.
+**Plan the wiring for your xLights show.** Assign props to controller and receiver ports, check pixel counts and power loads, and export a plan you can use while wiring.
 
-## Download
+**[Download for Windows][download]** · [Quick start](docs/quick-start.md) · [Examples](docs/examples.md) · [FAQ](docs/faq.md) · [Report a bug][bugs]
 
-Get the latest version from [GitHub Releases](https://github.com/bozzel/PortPilot/releases/latest).
+> **Early preview.** PortPilot is still in its early stages. More planning tools and workflow improvements are on the way. If something behaves differently from what you expect, a short bug report with steps to reproduce it is a big help.
 
-- `PortPilot-Setup-x.y.z.exe` installs PortPilot for your Windows user account without requiring administrator rights.
-- `PortPilot-x.y.z-portable.exe` runs without installation.
+![PortPilot’s Port Assignment tab showing sample props, pixel counts, port limits and current warnings](docs/port-assignment.png)
 
-### macOS test builds
+*Development preview with the built-in English example show.*
 
-Run **Build and test macOS** in GitHub Actions to build and test separate disk images for Apple Silicon (`arm64`) and Intel (`x64`). Successful jobs attach the matching DMG as a workflow artifact. These test builds are not notarized. On macOS, the update notification opens the GitHub release page for a manual update.
+## From xLights layout to wiring plan
 
-To build locally on a Mac, run `npm ci` and `npm run build:mac` from the `windows` directory. The DMG is written to `windows/dist-mac`.
+1. **Import your show.** Choose the xLights show folder. PortPilot reads controllers from `xlights_networks.xml` and props from `xlights_rgbeffects.xml`.
+2. **Describe your hardware.** Set up your controllers, receivers and power supplies, and assign pixel types or fixed power values to your props.
+3. **Assign and review.** Drag props to ports or generate a proposal. Review pixel, current and power supply warnings against your hardware.
+4. **Export your plan.** Take an Excel or PDF report to the display, or save the wiring diagram as a PNG. Apply the port assignments in xLights yourself.
 
-The Windows executables are currently unsigned. PortPilot 1.0.4 and later notify you when a new release is available.
+PortPilot reads your show files as input. Your planning work stays in PortPilot.
 
-## Features
+## Get PortPilot
 
-- Import controllers from `xlights_networks.xml` and props from `xlights_rgbeffects.xml`. PortPilot reads these files without modifying your show.
-- Map receivers, including daisy-chained smart receivers, and power supplies in a wiring diagram.
-- Drag props onto ports or generate a balanced assignment.
-- See pixel count, watts and amps per port. PortPilot checks your personal data-string limit, the controller limit at your frame rate, and the current limit per port.
-- Set the pixel type for each prop, including 5 V and 12 V bullet and seed pixels. Specify a fixed power draw for floodlights and similar devices.
-- Export to Excel or PDF, or save the wiring diagram as an image.
+Download from [the latest stable release][download].
 
-See the [changelog](CHANGELOG.md) for release notes and the [build guide in Dutch](LEESMIJ.md) for build instructions.
+| Download | Use it when |
+| --- | --- |
+| `PortPilot-Setup-x.y.z.exe` | You want a regular Windows installation and in-app updates. |
+| `PortPilot-x.y.z-portable.exe` | You want to run PortPilot without installing it. Updates open the release page. |
 
-## License
+Choose **English** or **Nederlands** and set the appearance under **Settings → Theme**. The Windows downloads are currently unsigned. The macOS edition is being prepared as a separate beta.
 
-PortPilot is licensed under GPL-3.0. See [LICENSE](LICENSE).
+## Help improve PortPilot
+
+- [Browse existing issues][issues] to see whether a problem is already reported.
+- [Report a bug][bugs] with your PortPilot version, steps, expected result and actual result. A screenshot or small anonymized example helps.
+- [Suggest a feature][ideas] by describing what you’re trying to do in your show and where the current workflow gets in the way.
+- [See what’s planned][roadmap] for upcoming improvements.
+
+## Project information
+
+[Changelog](CHANGELOG.md) · [Build guide (Dutch)](LEESMIJ.md) · [GPL-3.0 license](LICENSE)
+
+[download]: https://github.com/bozzel/PortPilot/releases/latest
+[issues]: https://github.com/bozzel/PortPilot/issues
+[bugs]: https://github.com/bozzel/PortPilot/issues/new?template=bug.yml
+[ideas]: https://github.com/bozzel/PortPilot/issues/new?template=feature.yml
+[roadmap]: https://github.com/bozzel/PortPilot/issues?q=is%3Aissue+is%3Aopen+label%3APlanned

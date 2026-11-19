@@ -1,0 +1,45 @@
+name: Bug report
+description: Report something that did not work as expected in PortPilot.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for testing PortPilot. Issues are public. Remove personal details and IP addresses from attached logs, screenshots and show files."
+  - type: input
+    id: version
+    attributes:
+      label: PortPilot version
+      placeholder: "1.0.7"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Platform, build, language and theme
+      placeholder: "Windows 11, installer, English, dark"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open …
+        2. Select …
+        3. Observe …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: Include the exact message, a screenshot or a small anonymized example if helpful.
+    validations:
+      required: true
