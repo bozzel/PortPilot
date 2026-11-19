@@ -12,7 +12,7 @@ Add the controller and receivers under **Hardware Setup**. Connect the first rec
 
 ![English example wiring diagram with the export button and wiring checks outlined](wiring-diagram.png)
 
-*This sample layout uses two controllers and three smart receivers. One receiver is daisy-chained and another has its own differential connection to the garden controller. The outlines mark Save as image and the Check panel, which flags power supplies that need review.*
+*This sample layout uses two controllers and three smart receivers. Receiver #3 has its own differential connection to the garden controller. Its outlined port 17A shows how PortPilot marks an overloaded port in red. The estimated 5.4 A exceeds the configured 5 A limit. The Check panel shows separate power supply warnings.*
 
 ## Account for a floodlight
 

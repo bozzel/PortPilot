@@ -25,7 +25,7 @@ Follow data and power cables from controllers to smart receivers, power supplies
 
 ![PortPilot wiring diagram with two controllers, three smart receivers, power supplies and assigned props](docs/wiring-diagram.png)
 
-*Sample layout with arches, spinners, a roofline and a mega tree. The outlines mark the image export and the Check panel.*
+*The cyan outline on receiver #3 points to port 17A. PortPilot shows a red dot and a red current reading of 5.4 A against the configured 5 A limit. The other outlines mark the image export and the power supply warnings.*
 
 ### Take the plan outside
 
