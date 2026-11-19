@@ -1,4 +1,4 @@
-# PortPilot
+# <img src="windows/build/icon.png" width="48" height="48" alt=""> PortPilot
 
 **Plan the wiring for your xLights show.** Assign props to controller and receiver ports, check pixel counts and power loads, and export a plan you can use while wiring.
 
