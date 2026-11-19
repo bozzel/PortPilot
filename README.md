@@ -8,7 +8,7 @@
 
 ![PortPilot’s Port Assignment tab showing sample props, pixel counts, port limits and current warnings](docs/port-assignment.png)
 
-*Development preview with the built-in English example show.*
+*Development preview with the built-in English example show. The outlines mark Generate proposal, the power supply summary, and a port with a current warning.*
 
 ## From xLights layout to wiring plan
 
