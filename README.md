@@ -6,9 +6,9 @@
 
 > **Early preview.** PortPilot is still in its early stages. More planning tools and workflow improvements are on the way. If something behaves differently from what you expect, a short bug report with steps to reproduce it is a big help.
 
-![PortPilot’s Port Assignment tab showing sample props, pixel counts, port limits and current warnings](docs/port-assignment.png)
+![Port Assignment with the Drag handle for Left arch 1 and empty controller port 4 outlined](docs/port-assignment.png)
 
-*Development preview with the built-in English example show. The outlines mark Generate proposal, the power supply summary, and a port with a current warning.*
+*Drag **Left arch 1** from the Props list onto port **4** of the front controller. The cyan outlines show where to pick up and drop the prop.*
 
 ## From xLights layout to wiring plan
 
