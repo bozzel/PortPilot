@@ -12,7 +12,7 @@ Add the controller and receivers under **Hardware Setup**. Connect the first rec
 
 ![English example wiring diagram with the export button and wiring checks outlined](wiring-diagram.png)
 
-*The built-in example shows two receiver connections. The outlines mark Save as image and the Check panel, which flags power supplies that need review.*
+*This sample layout uses two controllers and three smart receivers. One receiver is daisy-chained and another has its own differential connection to the garden controller. The outlines mark Save as image and the Check panel, which flags power supplies that need review.*
 
 ## Account for a floodlight
 

@@ -19,6 +19,18 @@
 
 PortPilot reads your show files as input. Your planning work stays in PortPilot.
 
+## Interactive wiring diagram
+
+Follow data and power cables from controllers to smart receivers, power supplies and the props on each port. The Node-RED-style view makes it easy to trace a receiver chain and spot load warnings before heading outside.
+
+![PortPilot wiring diagram with two controllers, three smart receivers, power supplies and assigned props](docs/wiring-diagram.png)
+
+*Sample layout with arches, spinners, a roofline and a mega tree. The outlines mark the image export and the Check panel.*
+
+### Take the plan outside
+
+Print the **PDF** or open it on a tablet to check which prop goes on which port while connecting the display. Use **Excel** for a sortable copy of the assignment, or choose **Wiring Diagram → Save as image** for a visual reference showing the data and power connections.
+
 ## Get PortPilot
 
 Download from [the latest stable release][download].
